@@ -23,24 +23,23 @@
     }
     .countdown {
       display: flex;
-      gap: 5px;
+      gap: 5px; /* espace réduit entre les blocs */
       flex-wrap: wrap;
-      padding: 0; /* retrait du cadre */
       color: #fa7d2b;
       text-align: center;
     }
     .time-box {
-      padding: 10px;
-      min-width: 70px;
+      padding: 5px; /* réduit pour compacter */
+      min-width: 60px;
     }
     .time-box span {
       display: block;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: bold;
       color: #fa7d2b;
     }
     .label {
-      font-size: 14px;
+      font-size: 13px;
       opacity: 0.9;
     }
   </style>
@@ -68,7 +67,7 @@
 
   <script>
     // Date de fin du compte à rebours (à personnaliser)
-    const countdownDate = new Date("2025-10-25T23:59:59").getTime();
+    const countdownDate = new Date("2025-12-31T23:59:59").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
