@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -8,17 +8,24 @@
     body {
       margin: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background: #ffffff;
       font-family: Arial, sans-serif;
     }
+    h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+      text-align: center;
+      color: #fa7d2b;
+    }
     .countdown {
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      background: #f16324;
+      background: #fa7d2b;
       padding: 20px 30px;
       border-radius: 12px;
       color: #fff;
@@ -38,15 +45,10 @@
       font-size: 14px;
       opacity: 0.9;
     }
-    h3 {
-      margin: 0;
-      font-size: 20px;
-      text-align: center;
-      color: #f16324;
-    }
   </style>
 </head>
 <body>
+  <h3>Jour du scrutin dans :</h3>
   <div class="countdown" id="countdown">
     <div class="time-box">
       <span id="days">0</span>
@@ -68,7 +70,7 @@
 
   <script>
     // Date de fin du compte à rebours (à personnaliser)
-    const countdownDate = new Date("2025-12-31T23:59:59").getTime();
+    const countdownDate = new Date("2025-10-25T23:59:59").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
