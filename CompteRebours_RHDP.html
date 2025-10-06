@@ -15,10 +15,22 @@
     
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #fa7d2b 0%, #e55a14 50%, #d14a0a 100%);
+      background: #1a1a1a;
       font-family: 'Roboto', sans-serif;
-      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .wrapper {
+      width: 1586px;
+      height: 498px;
+      background: linear-gradient(135deg, #fa7d2b 0%, #e55a14 50%, #d14a0a 100%);
+      border-radius: 20px;
       position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
     
     /* Animated background particles */
@@ -58,31 +70,29 @@
       position: relative;
       z-index: 10;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 60px;
     }
     
     .header {
-      text-align: center;
-      margin-bottom: 60px;
-      animation: slideDown 1.2s ease-out;
+      text-align: left;
+      flex-shrink: 0;
     }
     
     .main-title {
       font-family: 'Orbitron', monospace;
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: 3rem;
       font-weight: 900;
       color: #ffffff;
       text-shadow: 0 0 30px rgba(250, 125, 43, 0.8);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       letter-spacing: 2px;
     }
     
     .subtitle {
-      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-size: 1.3rem;
       color: #f0f8ff;
       font-weight: 300;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -91,24 +101,22 @@
     .countdown-container {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 40px;
+      border-radius: 20px;
+      padding: 30px 40px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      animation: slideUp 1.5s ease-out;
     }
     
     .countdown {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 30px;
-      max-width: 600px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
     }
     
     .time-box {
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-      border-radius: 20px;
-      padding: 25px 15px;
+      border-radius: 15px;
+      padding: 20px 25px;
       text-align: center;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -116,10 +124,11 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      min-width: 110px;
     }
     
     .time-box:hover {
-      transform: translateY(-10px) scale(1.05);
+      transform: translateY(-5px) scale(1.05);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     }
     
@@ -156,17 +165,17 @@
     
     .time-value {
       font-family: 'Orbitron', monospace;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 2.8rem;
       font-weight: 700;
       color: #ffffff;
       text-shadow: 0 0 20px rgba(250, 125, 43, 0.8);
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       animation: pulse 2s infinite ease-in-out;
     }
     
     .time-label {
-      font-size: 14px;
+      font-size: 13px;
       color: #f0f8ff;
       font-weight: 500;
       text-transform: uppercase;
@@ -182,32 +191,10 @@
       }
     }
     
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
     .finished-message {
       text-align: center;
       font-family: 'Orbitron', monospace;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-size: 2rem;
       color: #ffffff;
       text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
       animation: celebration 2s infinite alternate ease-in-out;
@@ -223,62 +210,36 @@
         text-shadow: 0 0 40px rgba(250, 125, 43, 1), 0 0 60px rgba(250, 125, 43, 0.8);
       }
     }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .countdown-container {
-        padding: 25px;
-        margin: 20px;
-      }
-      
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      
-      .time-box {
-        padding: 20px 10px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-      
-      .header {
-        margin-bottom: 40px;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="particles" id="particles"></div>
-  
-  <div class="container">
-    <div class="header">
-      <h1 class="main-title">ÉLECTIONS 2025</h1>
-      <p class="subtitle">Jour du scrutin dans :</p>
-    </div>
+  <div class="wrapper">
+    <div class="particles" id="particles"></div>
     
-    <div class="countdown-container">
-      <div class="countdown" id="countdown">
-        <div class="time-box">
-          <span class="time-value" id="days">0</span>
-          <div class="time-label">Jours</div>
-        </div>
-        <div class="time-box">
-          <span class="time-value" id="hours">0</span>
-          <div class="time-label">Heures</div>
-        </div>
-        <div class="time-box">
-          <span class="time-value" id="minutes">0</span>
-          <div class="time-label">Minutes</div>
-        </div>
-        <div class="time-box">
-          <span class="time-value" id="seconds">0</span>
-          <div class="time-label">Secondes</div>
+    <div class="container">
+      <div class="header">
+        <h1 class="main-title">ÉLECTIONS 2025</h1>
+        <p class="subtitle">Jour du scrutin dans :</p>
+      </div>
+      
+      <div class="countdown-container">
+        <div class="countdown" id="countdown">
+          <div class="time-box">
+            <span class="time-value" id="days">0</span>
+            <div class="time-label">Jours</div>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="hours">0</span>
+            <div class="time-label">Heures</div>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="minutes">0</span>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="seconds">0</span>
+            <div class="time-label">Secondes</div>
+          </div>
         </div>
       </div>
     </div>
